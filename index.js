@@ -67,7 +67,7 @@ async function getDetails(type, word = '') {
                 await getAllDetails(word);
         }
     } catch (e) {
-        console.error(`Error: ${e}`);
+        console.error(`Error: ${e.error}`);
         process.exit(1);
     }
 }
