@@ -78,7 +78,7 @@ module.exports = {
     return Math.floor(Math.random() * (max - min)) + min;
     },
     getRandomData(antonyms, synonyms, definitions, word) {
-        let that = module.exports;
+        let that = this;
         return [{
             type: 'def',
             data: definitions,
