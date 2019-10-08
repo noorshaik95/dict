@@ -1,0 +1,16 @@
+{
+  "apiKey": "9415719486db0a35b436c09d9521d2c88101cc5a061482392e826526628947128f25115fef23e05d1224f64403fe9479828de54495b8f8832d66bac8bf63b6c49d168a961a90892e1305ab05ca0b78a1",
+  "baseUrl": "https://fourtytwowords.herokuapp.com",
+  "extendUrl": "/word/",
+  "definitionUrl": ":word/definitions",
+  "exampleUrl": ":word/examples",
+  "relatedWordUrl": ":word/relatedWords",
+  "randomWordUrl": "/words/randomWord",
+  "commandsWithWord": ["def", "ex", "syn", "ant"],
+  "mappedUrl": {
+    "def": "definitionUrl",
+    "ex": "exampleUrl",
+    "syn": "relatedWordUrl",
+    "ant": "relatedWordUrl"
+  }
+}
