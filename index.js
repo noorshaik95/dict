@@ -17,8 +17,10 @@ if (config.commandsWithWord.indexOf(argv._[0]) > -1) {
 } else if (argv._[0] === 'dict' && argv._[1]){
     word = argv._[1];
     type = argv._[0];
-} else if (argv._[0] && !argv._[1]) {
+} else if (argv._[0] !== 'play' && !argv._[1]) {
     word = argv._[0];
+} else {
+    type = 'play'
 }
 
 async function getDetails(type, word = '') {
@@ -51,14 +53,22 @@ async function getDetails(type, word = '') {
                 return examples;
             case 'play':
                 await getAllDetails(word);
-
-                break;
+                let randomDisplay = utils.getRandomData(antonyms, synonyms, definitions, word);
+                let showedSynonyms = [];
+                utils.displayRandomData(randomDisplay, showedSynonyms);
+                let answer = await utils.askQuestion('Guess the word:');
+                while (!utils.checkAnswer(answer, synonyms, showedSynonyms, word)) {
+                    answer = await utils.onAnswer(randomDisplay, showedSynonyms);
+                    if(typeof answer === 'boolean' && answer) {
+                        break;
+                    }
+                }
             case 'dict':
             default:
                 await getAllDetails(word);
         }
     } catch (e) {
-        console.error(`Error: ${e.error}`);
+        console.error(`Error: ${e}`);
         process.exit(1);
     }
 }
