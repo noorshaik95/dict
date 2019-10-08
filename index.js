@@ -9,7 +9,7 @@ let definitions = [], antonyms = [], synonyms = [], examples = [];
 if (config.commandsWithWord.indexOf(argv._[0]) > -1) {
     if(!argv._[1]) {
         console.log("Invalid input");
-        process.exit(1);
+        process.exit(9);
     }
     type = argv._[0];
     word = argv._[1];
@@ -112,7 +112,7 @@ async function startApp() {
             utils.printLine();
         }
     }
-    process.exit(1);
+    process.exit(0);
 }
 
 startApp();
