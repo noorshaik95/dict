@@ -1,4 +1,3 @@
-const readline = require('readline');
 const yargs = require('yargs');
 const argv = yargs.argv;
 const config = require('config');
